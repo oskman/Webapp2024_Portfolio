@@ -1,2 +1,2 @@
 # Webapp2024_Portfolio
-Repo for different versions of portfolio project.
+Repo for version 1 of the portfolio project.
