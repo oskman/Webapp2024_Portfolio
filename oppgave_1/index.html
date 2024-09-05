@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="./static/style.css">
+  </head>
+  <body>
+    <div id="app">
+      <header>
+        <h1>Min Portefølje</h1>
+        <nav>
+          <ul>
+            <li><a href="">Hjem</a></li>
+            <li><a href="">Om</a></li>
+            <li><a href="">Kontakt</a></li>
+          </ul>
+        </nav>
+      </header>
+      <main>
+        <aside id="projectListAside">
+          <ul></ul>
+        </aside>
+        <article><h2>MAINarticleTST</h2></article>
+        <aside id="projectFormAside">
+         <form id="projectForm">
+           <label for="name">Navn:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="description">Beskrivelse:</label>
+            <input type="text" id="description" name="description">
+            <label for="startDate">StartDato:</label>
+            <input type="text" id="startDate" name="startDate" required>
+            <label for="endDate">SluttDato:</label>
+            <input type="text" id="endDate" name="endDate">
+            <label for="technologies">Teknologier:</label>
+            <input type="text" id="technologies" name="technologies" required>
+            <label for="repositoryURL">Repo URL:</label>
+            <input type="text" id="repositoryURL" name="repositoryURL" required>
+            <label for="status">Status:</label>
+            <input type="text" id="status" name="status" required>
+            <button type="submit">Legg til</button>
+          </form>
+        </aside>
+      </main>
+      <footer><h6>FooterTST</h6></footer>
+    </div>
+
+    <script type="module" src="main.ts"></script>
+  </body>
+</html>
