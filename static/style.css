@@ -1,0 +1,84 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+#app {
+  display:grid;
+  grid-template-columns: repeat(1, minmax(100px,1fr));
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  min-height: 100vh;
+  min-width: 100vw;
+}
+
+main {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  
+}
+
+header {
+  display:flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  
+}
+
+li {
+  list-style: none;
+}
+
+
+#projectListAside {
+  display: flex;
+  overflow-y: auto;
+  flex-direction: column;
+  justify-content: start;
+  width: 30vh;
+}
+
+#projectListAside li {
+  margin-top: 1vh;
+  border-style: solid;
+}
+
+#projectlistAside li a,p {
+  padding-left: 1vw;
+  padding-right: 1vw;
+}
+
+#projectFormAside {
+  display: grid;
+  justify-content: end;
+}
+
+#projectForm {
+  display: flex;
+  flex-direction: column;
+}
+
+
+

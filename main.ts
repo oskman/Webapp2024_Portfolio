@@ -28,6 +28,7 @@ function updateProjList() {
       <p>${project.status}</P>
       `;
     projectList?.appendChild(li);
+    
 })
 
 }
@@ -36,6 +37,7 @@ const fetchProjects = async () => {
   try {
     const respons = await fetch("http://localhost:3999/get_temp");
     const data = await respons.json();
+    projects.length = 0;
     projects.push(...data);
     updateProjList();
   } catch (error) {
