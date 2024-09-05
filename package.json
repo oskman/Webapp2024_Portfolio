@@ -1,0 +1,25 @@
+{
+  "name": "oppgave_1",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev:frontend": "vite",
+    "dev:server": "tsx --watch ./backend/server.ts",
+    "dev": "concurrently -n frontend,server -c green,blue \"pnpm run dev:frontend\" \"pnpm run dev:server\"",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "typescript": "^5.5.3",
+    "vite": "^5.4.1"
+  },
+  "dependencies": {
+    "@hono/node-server": "^1.12.2",
+    "fs": "0.0.1-security",
+    "hono": "^4.5.11",
+    "promises": "link:node:fs/promises",
+    "tsx": "^4.19.0"
+  }
+}
