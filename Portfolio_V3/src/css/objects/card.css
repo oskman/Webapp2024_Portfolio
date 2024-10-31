@@ -1,0 +1,32 @@
+@layer components;
+
+.card {
+    background-color: var(--secondary-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    border-radius: 8px;
+    transition: box-shadow 0.3s ease;
+    list-style: none;
+
+    
+    & .title {
+        font-size: 1.5em;
+        font-weight: bold;
+        color: var(--text-color);
+        margin-bottom: 0.5rem;
+    }
+
+    & .content {
+        padding: 1rem;
+        color: var(--text-color);
+
+        & p {
+            margin-bottom: 0.8rem;
+            line-height: 1.6;
+        }
+    }
+
+    &:hover {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+}

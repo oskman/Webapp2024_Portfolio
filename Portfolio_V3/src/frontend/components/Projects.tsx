@@ -19,7 +19,8 @@ export default function Projects(props: Readonly<ProjectProps>) {
                     endDate={project.endDate}
                     technologies={project.technologies}
                     repositoryURL={project.repositoryURL}
-                    status={project.status}> 
+                    status={project.status}
+                    isPublic={project.isPublic}> 
                     </Project>
             )))}
             <h4>Totalt antall prosjekter:{projects.length}</h4>

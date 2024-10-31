@@ -1,31 +1,22 @@
-import { serve } from "@hono/node-server";
-import { Hono } from "hono";
-import { cors } from "hono/cors";
-import { serveStatic } from "@hono/node-server/serve-static";
-import {project} from "../frontend/components/types"
-import projects from "./projects.json"
+import express from "express";
+import cors from "cors";
+import router from "./routes/projectsRoutes"; 
 
-const app = new Hono();
 
-app.use("/*", cors());
-
-app.use("/static/*", serveStatic({ root: "../" }));
-
-const projectArray: Omit<project,"id">[] = projects.projects;
-
-app.get("/projects", async (c) => {
-  const projectArrayWithUuid: project[] = projectArray.map((proj) => ({
-    ...proj,
-    id: crypto.randomUUID(),
-  }))
-  return c.json(projectArrayWithUuid);
-});
-
+const app = express();
 const port = 3999;
 
-console.log(`Server kjører på: ${port}`);
 
-serve({
-  fetch: app.fetch,
-  port,
+app.use(cors());
+app.use(express.json()); 
+
+
+app.use("/static", express.static( "../" ));
+
+
+app.use("/api", router); 
+
+
+app.listen(port, () => {
+  console.log(`Server kjører på: http://localhost:${port}`);
 });

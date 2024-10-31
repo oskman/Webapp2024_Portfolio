@@ -1,51 +1,41 @@
-import { useState, FormEvent } from "react";
+import { useState } from "react";
 import { ContactForm } from "./types";
+import {useForm} from "../hooks/useForm";
 
 export default function CreateContact() {
- 
-  const [formData, setFormData] = useState<ContactForm>({
-    id: crypto.randomUUID(),
-    senderName: "",
-    message: "",
-  });
-
-  
   const [error, setError] = useState<string | null>(null);
   const [submittedData, setSubmittedData] = useState<ContactForm | null>(null);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+  const initialValues: ContactForm = {
+    id: crypto.randomUUID(),
+    senderName: "",
+    message: "",
   };
 
-
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    if (!formData.senderName || !formData.message) {
-      setError("Navn og melding må fylles ut!");
-      return;
-    }
-    setError(null);
-    setSubmittedData(formData);
-    setFormData({
-        id: crypto.randomUUID(),
-        senderName: "",
-        message: "",
-    });
-  };
+  const { formVals, handleChange, handleSubmit } = useForm({
+    initialValues,
+    onSubmit: async (data) => {
+      if (!data.senderName || !data.message) {
+        setError("Navn og melding må fylles ut!");
+        return;
+      }
+      setError(null);
+      setSubmittedData(data);
+    },
+  });
 
   return (
     <aside id="contactForm">
       <h3>Kontakt meg</h3>
 
-      <form id="form" onSubmit={handleSubmit}>
+      <form className="form" onSubmit={handleSubmit}>
         <label htmlFor="name">Navn:</label>
         <input
           type="text"
           id="name"
-          name="senderName" 
-          value={formData.senderName}
-          onChange={handleChange}
+          name="senderName"
+          value={formVals.senderName}
+          onChange={handleChange("senderName")}
           required
         />
 
@@ -53,8 +43,8 @@ export default function CreateContact() {
         <textarea
           id="message"
           name="message"
-          value={formData.message}
-          onChange={handleChange}
+          value={formVals.message}
+          onChange={handleChange("message")}
           required
         />
 
@@ -63,7 +53,6 @@ export default function CreateContact() {
         <button type="submit">Send</button>
       </form>
 
- 
       {submittedData && (
         <div>
           <h4>Innsendt data:</h4>

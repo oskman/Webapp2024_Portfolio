@@ -1,0 +1,28 @@
+@layer layout;
+
+#app {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--padding);
+    padding: var(--padding);
+    min-height: 100vh;
+}
+
+main {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+aside.asideForm {
+    display: flex;
+    flex-direction: column;
+}
+
+header, footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
